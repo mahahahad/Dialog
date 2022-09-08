@@ -46,11 +46,13 @@ li {
 }
 
 .title {
+  font-weight: 500;
   font-size: clamp(32px, 3.75vmin, 36px);
   line-height: 42px;
 }
 
 .content {
+  font-weight: 400;
   font-size: var(--fs-content);
   line-height: calc(1ex / 0.38);
   text-align: justify;
@@ -63,7 +65,7 @@ button {
   border-radius: 28px;
   cursor: pointer;
   font-size: var(--fs-content);
-  font-weight: 600;
+  font-weight: 500;
   transition: background-color 350ms var(--easing);
 }
 
@@ -157,7 +159,7 @@ button {
 
 /* || MEDIA QUERIES */
 /* Larger screen sizes */
-@media (min-width: 413px) {
+@media (min-width: 500px) {
   .dialog {
     max-width: 720px;
   }
