@@ -1,0 +1,183 @@
+@import "./normalize.css";
+
+:root {
+  /* General things */
+  font-family: "Figtree";
+  --fs-content: clamp(14px, 1.85vmin, 18px);
+
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Color things */
+  --Neutral10: hsl(210, 3%, 8%);
+  --Neutral20: hsl(210, 3%, 20%);
+  --Neutral40: hsl(210, 4%, 40%);
+  --Neutral50: hsl(210, 3%, 50%);
+  --Neutral80: hsl(210, 11%, 80%);
+  --Neutral99: hsl(210, 100%, 99%);
+
+  --Primary20: hsl(75, 60%, 26%);
+  --Primary30: hsl(75, 60%, 38%);
+  --Primary40: hsl(75, 74%, 48%);
+  --Primary70: hsl(75, 80%, 72%);
+  --Primary80: hsl(75, 95%, 87%);
+
+  --background: var(--Neutral99);
+  --on-background: var(--Neutral10);
+  --outline: var(--Neutral50);
+  --primary: var(--Primary30);
+  --on-primary: white;
+  --surface5: hsla(75, 74%, 53%, 18%);
+}
+
+/* || GENERAL */
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+li {
+  list-style-type: "—  ";
+  line-height: 200%;
+  font-size: var(--fs-content);
+}
+
+.title {
+  font-size: clamp(32px, 3.75vmin, 36px);
+  line-height: 42px;
+}
+
+.content {
+  font-size: var(--fs-content);
+  line-height: calc(1ex / 0.38);
+  text-align: justify;
+}
+
+/* || BUTTONS */
+button {
+  padding: 0.85rem 2.25rem;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  font-size: var(--fs-content);
+  font-weight: 600;
+  transition: background-color 350ms var(--easing);
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.outlined {
+  background-color: transparent;
+  color: var(--on-background);
+  border: 1px solid var(--outline);
+}
+
+.primary:hover {
+  background-color: var(--Primary20);
+}
+.outlined:hover {
+  background-color: var(--Neutral80);
+}
+
+/* || DIALOG */
+.dialog-wrapper {
+  /* Make background darker to show importance */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+
+  /* Take up full browser viewport size */
+  height: 100vh;
+  width: 100vw;
+
+  /* Position fixed to make it appear above all other elements */
+  position: fixed;
+
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+
+  transition: opacity 150ms ease;
+}
+
+.dialog {
+  background: var(--background);
+  color: var(--on-background);
+  padding: 36px;
+  border-radius: 28px;
+  width: 100%;
+  box-shadow: 0 0.75rem 4rem 0.25rem rgba(25, 26, 27, 0.1);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 500ms var(--easing), transform 500ms var(--easing);
+}
+
+.dialog__header {
+  margin-bottom: 16px;
+}
+
+.dialog__actions {
+  margin-top: 2rem;
+  text-align: right;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dialog__actions button {
+  flex-grow: 1;
+}
+
+.hidden {
+  /* opacity: 0 !important; */
+  display: none;
+}
+.dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  cursor: pointer;
+  fill: var(--on-background);
+  transition: fill 350ms var(--easing);
+}
+
+.close-icon:hover {
+  fill: var(--primary);
+}
+
+/* || MEDIA QUERIES */
+/* Larger screen sizes */
+@media (min-width: 413px) {
+  .dialog {
+    max-width: 720px;
+  }
+  .dialog__actions {
+    display: block;
+  }
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--Primary80);
+    --on-primary: var(--Primary20);
+    --background: var(--Neutral10);
+    --on-background: var(--Neutral99);
+    --outline: var(--Neutral40);
+  }
+  .primary:hover {
+    background-color: var(--Primary70);
+  }
+  .outlined:hover {
+    background-color: var(--Neutral20);
+  }
+}

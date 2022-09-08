@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Basic Dialog</title>
+  </head>
+  <body>
+    <button class="primary" id="openDialog">Open Dialog</button>
+    <!-- Dialog/Modal container -->
+    <!-- Better to have it hidden here than append it through javascript when needed I think -->
+    <div class="dialog-wrapper hidden" id="dialogWrapper">
+      <!-- Dialog/Modal markup -->
+      <!-- 
+      Usage:
+        Whenever the user needs to provide some data or make an action that is required for continuing with other things
+      -->
+      <div class="dialog" id="dialog">
+        <div class="dialog__header">
+          <h1 class="title">Would you like to likeot?</h1>
+          <span class="close-icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32"
+              width="32"
+              class="close-icon"
+              id="closeIcon"
+              viewbox="0 0 48 48"
+            >
+              <path
+                d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div class="dialog__content">
+          <p class="content">
+            Doing so will enable you to do a lot of things. Like being able to
+            do the things. As well as being able to do the things you were not
+            able to to do beforely
+          </p>
+          <p class="content">
+            An example of aforementioned content is as follows:
+          </p>
+          <ul>
+            <li>Lose YeeYee ass haircut</li>
+            <li>Get bitches</li>
+            <li>Better yet</li>
+            <li>Tanisha will call your dawg ass</li>
+          </ul>
+        </div>
+        <div class="dialog__actions">
+          <button class="outlined" id="disagreeBtn">Disagree</button>
+          <button class="primary" id="agreeBtn">Agree</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
