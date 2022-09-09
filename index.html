@@ -15,7 +15,19 @@
     <title>Basic Dialog</title>
   </head>
   <body>
-    <button class="primary" id="openDialog">Open Dialog</button>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="0"
+      width="0"
+      class="close-icon"
+      viewbox="0 0 48 48"
+    >
+      <path
+        id="closeIconPath"
+        d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+      />
+    </svg>
+    <button class="btn btn--primary" id="openDialog">Open Dialog</button>
     <!-- Dialog/Modal container -->
     <!-- Better to have it hidden here than append it through javascript when needed I think -->
     <div class="dialog-wrapper hidden" id="dialogWrapper">
@@ -29,20 +41,17 @@
           <h1 class="title">Would you like to likeot?</h1>
           <span class="close-icon-wrapper">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
               height="32"
               width="32"
-              class="close-icon"
-              id="closeIcon"
               viewbox="0 0 48 48"
+              class="close-icon"
+              id="dialogCloseIcon"
             >
-              <path
-                d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
-              />
+              <use href="#closeIconPath" />
             </svg>
           </span>
         </div>
-        <div class="dialog__content">
+        <div class="dialog__content" id="dialogContent">
           <p class="content">
             Doing so will enable you to do a lot of things. Like being able to
             do the things. As well as being able to do the things you were not
@@ -59,11 +68,29 @@
           </ul>
         </div>
         <div class="dialog__actions">
-          <button class="outlined" id="disagreeBtn">Disagree</button>
-          <button class="primary" id="agreeBtn">Agree</button>
+          <button class="btn btn--outlined" id="disagreeBtn">Disagree</button>
+          <button class="btn btn--primary" id="agreeBtn">Agree</button>
         </div>
       </div>
     </div>
-    <script src="./script.js"></script>
+    <div class="snackbar-wrapper hidden" id="snackbarWrapper">
+      <div class="snackbar" id="snackbar">
+        <div class="snackbar__message" id="snackbarMessage"></div>
+        <div class="snackbar__action">
+          <button class="btn--text">
+            <svg
+              height="32"
+              width="32"
+              viewbox="0 0 48 48"
+              class="close-icon"
+              id="snackbarCloseIcon"
+            >
+              <use href="#closeIconPath" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./src/script.js"></script>
   </body>
 </html>
